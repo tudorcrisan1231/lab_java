@@ -15,7 +15,7 @@ public class Main {
             f1 = f;
         }
         if (f == n) {
-            System.out.println("Numarul apartine sirului lui Fibonacci");
+            System.out.println("Numarul apartine sirului lui Fibonacci.");
         } else {
             System.out.println("Numarul nu apartine sirului lui Fibonacci");
         }
