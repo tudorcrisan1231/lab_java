@@ -59,6 +59,23 @@ public class Main {
                 return false;
             }
 
+//            Ultima cifră din CNP (cifra numărul 13) este una de control (al validităţii CNP-ului). Această cifră rezultă în urma unui calcul matematic foarte simplu. Pentru a afla această cifră, pe baza primelor 12 cifre al CNP-ului, se foloseşte numărul 279146358279. Fiecare cifră a CNP-ului se înmulţeşte cu cifra corespondentă din acest număr, rezultatele se adună, iar suma rezultată se împarte la 11. Restul împărţirii dă cifra de control. Dacă restul este 10, cifra de control este 1.
+            int[] cifreCnp = new int[13];
+            for (int i = 0; i < 13; i++) {
+                cifreCnp[i] = Integer.parseInt(String.valueOf(cnp.charAt(i)));
+            }
+            int[] cifreControl = new int[]{2, 7, 9, 1, 4, 6, 3, 5, 8, 2, 7, 9};
+            int suma = 0;
+            for (int i = 0; i < 12; i++) {
+                suma += cifreCnp[i] * cifreControl[i];
+            }
+            int rest = suma % 11;
+            if (rest == 10) {
+                rest = 1;
+            }
+            if (rest != cifreCnp[12]) {
+                return false;
+            }
             return true;
         }
 }

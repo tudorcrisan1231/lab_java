@@ -1,5 +1,6 @@
 package ex4;
 
+import java.time.temporal.ChronoUnit;
 import java.util.*;
 import java.time.LocalDate;
 public class Persoana {
@@ -15,21 +16,21 @@ public class Persoana {
         this.cnp = cnp;
     }
 
-    public int getVarsta() {
+    public long getVarsta() {
         int an = Integer.parseInt(cnp.substring(1, 3));
         int luna = Integer.parseInt(cnp.substring(3, 5));
         int zi = Integer.parseInt(cnp.substring(5, 7));
 
-        if(an < 24) {
-            an += 2000;
-        } else {
+        if(cnp.charAt(0) == '1' || cnp.charAt(0) == '2') {
             an += 1900;
+        } else if(cnp.charAt(0) == '5' || cnp.charAt(0) == '6') {
+            an += 2000;
         }
 
-        LocalDate dataNasterii = LocalDate.of(an, luna, zi);
-        LocalDate dataCurenta = LocalDate.now();
-
-        return dataCurenta.getYear() - dataNasterii.getYear();
+        return ChronoUnit.YEARS.between(
+                LocalDate.of(an, luna, zi),
+                LocalDate.now()
+        );
     }
 
     public String getNume() {
