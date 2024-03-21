@@ -11,6 +11,7 @@
     <modules>
         <module>lab2</module>
         <module>lab3</module>
+        <module>lab5</module>
     </modules>
 
     <properties>
