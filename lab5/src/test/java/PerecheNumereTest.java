@@ -23,7 +23,7 @@ public class PerecheNumereTest {
 
     @Test
     public void test3_isFibonacci() {
-        PerecheNumere p = new PerecheNumere(8, 13);
+        PerecheNumere p = new PerecheNumere(9, 12);
         assertTrue(p.isFibonacci());
     }
 
@@ -47,8 +47,8 @@ public class PerecheNumereTest {
 
     @Test
     public void test1_isSumOfDigitsEqual() {
-        PerecheNumere p = new PerecheNumere(4, 5);
-        assertFalse(p.isSumOfDigitsEqual());
+        PerecheNumere p = new PerecheNumere(15, 123);
+        assertTrue(p.isSumOfDigitsEqual());
     }
 
     @Test
@@ -65,8 +65,8 @@ public class PerecheNumereTest {
 
     @Test
     public void test1_hasEqualNumberOfEvenDigits() {
-        PerecheNumere p = new PerecheNumere(4, 5);
-        assertFalse(p.hasEqualNumberOfEvenDigits());
+        PerecheNumere p = new PerecheNumere(234, 135786);
+        assertTrue(p.hasEqualNumberOfEvenDigits());
     }
 
     @Test
